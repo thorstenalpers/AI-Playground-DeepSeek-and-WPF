@@ -38,7 +38,6 @@ public class PagesTests
 		// Services
 		services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
 		services.AddSingleton<ISystemService, SystemService>();
-		services.AddSingleton<ISampleDataService, SampleDataService>();
 		services.AddSingleton<IPersistAndRestoreService, PersistAndRestoreService>();
 		services.AddSingleton<IApplicationInfoService, ApplicationInfoService>();
 		services.AddSingleton<IPageService, PageService>();
@@ -48,8 +47,6 @@ public class PagesTests
 		services.AddTransient<WebViewViewModel>();
 		services.AddTransient<SettingsViewModel>();
 		services.AddTransient<MainViewModel>();
-		services.AddTransient<ListDetailsViewModel>();
-		services.AddTransient<DataGridViewModel>();
 
 		// Configuration
 		services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
@@ -114,50 +111,6 @@ public class PagesTests
 		{
 			Type pageType = pageService.GetPageType(typeof(MainViewModel).FullName);
 			Assert.That(typeof(MainPage), Is.EqualTo(pageType));
-		}
-		else
-		{
-			Assert.Fail($"Can't resolve {nameof(IPageService)}");
-		}
-	}
-
-	// TODO: Add tests for functionality you add to ListDetailsViewModel.
-	[Test]
-	public void TestListDetailsViewModelCreation()
-	{
-		object vm = _host.Services.GetService(typeof(ListDetailsViewModel));
-		Assert.That(vm, Is.Not.Null);
-	}
-
-	[Test]
-	public void TestGetListDetailsPageType()
-	{
-		if (_host.Services.GetService(typeof(IPageService)) is IPageService pageService)
-		{
-			Type pageType = pageService.GetPageType(typeof(ListDetailsViewModel).FullName);
-			Assert.That(typeof(ListDetailsPage), Is.EqualTo(pageType));
-		}
-		else
-		{
-			Assert.Fail($"Can't resolve {nameof(IPageService)}");
-		}
-	}
-
-	// TODO: Add tests for functionality you add to DataGridViewModel.
-	[Test]
-	public void TestDataGridViewModelCreation()
-	{
-		object vm = _host.Services.GetService(typeof(DataGridViewModel));
-		Assert.That(vm, Is.Not.Null);
-	}
-
-	[Test]
-	public void TestGetDataGridPageType()
-	{
-		if (_host.Services.GetService(typeof(IPageService)) is IPageService pageService)
-		{
-			Type pageType = pageService.GetPageType(typeof(DataGridViewModel).FullName);
-			Assert.That(typeof(DataGridPage), Is.EqualTo(pageType));
 		}
 		else
 		{

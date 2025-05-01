@@ -70,43 +70,7 @@ namespace DeepSeek.WPF.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ContentGrid.
-        /// </summary>
-        public static string ContentGridPageTitle {
-            get {
-                return ResourceManager.GetString("ContentGridPageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DataGrid.
-        /// </summary>
-        public static string DataGridPageTitle {
-            get {
-                return ResourceManager.GetString("DataGridPageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sample Orders.
-        /// </summary>
-        public static string ListDetailsListDescription {
-            get {
-                return ResourceManager.GetString("ListDetailsListDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ListDetails.
-        /// </summary>
-        public static string ListDetailsPageTitle {
-            get {
-                return ResourceManager.GetString("ListDetailsPageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Main.
+        ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string MainPageTitle {
             get {
@@ -151,15 +115,6 @@ namespace DeepSeek.WPF.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Privacy Statement.
-        /// </summary>
-        public static string SettingsPagePrivacyStatementText {
-            get {
-                return ResourceManager.GetString("SettingsPagePrivacyStatementText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Dark.
         /// </summary>
         public static string SettingsPageRadioButtonDarkTheme {
@@ -196,24 +151,6 @@ namespace DeepSeek.WPF.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ContentGrid.
-        /// </summary>
-        public static string ShellContentGridPage {
-            get {
-                return ResourceManager.GetString("ShellContentGridPage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DataGrid.
-        /// </summary>
-        public static string ShellDataGridPage {
-            get {
-                return ResourceManager.GetString("ShellDataGridPage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Go back.
         /// </summary>
         public static string ShellGoBackButton {
@@ -232,16 +169,7 @@ namespace DeepSeek.WPF.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ListDetails.
-        /// </summary>
-        public static string ShellListDetailsPage {
-            get {
-                return ResourceManager.GetString("ShellListDetailsPage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Main.
+        ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string ShellMainPage {
             get {
@@ -259,7 +187,7 @@ namespace DeepSeek.WPF.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WebView.
+        ///   Looks up a localized string similar to Browser.
         /// </summary>
         public static string ShellWebViewPage {
             get {

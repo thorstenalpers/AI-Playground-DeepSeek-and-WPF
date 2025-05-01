@@ -67,7 +67,6 @@ public partial class App : Application
 		services.AddSingleton<IApplicationInfoService, ApplicationInfoService>();
 		services.AddSingleton<IPersistAndRestoreService, PersistAndRestoreService>();
 		services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
-		services.AddSingleton<ISampleDataService, SampleDataService>();
 		services.AddSingleton<ISystemService, SystemService>();
 		services.AddSingleton<IPageService, PageService>();
 		services.AddSingleton<INavigationService, NavigationService>();
@@ -81,15 +80,6 @@ public partial class App : Application
 
 		services.AddTransient<WebViewViewModel>();
 		services.AddTransient<WebViewPage>();
-
-		services.AddTransient<DataGridViewModel>();
-		services.AddTransient<DataGridPage>();
-
-		services.AddTransient<ContentGridDetailViewModel>();
-		services.AddTransient<ContentGridDetailPage>();
-
-		services.AddTransient<ListDetailsViewModel>();
-		services.AddTransient<ListDetailsPage>();
 
 		services.AddTransient<SettingsViewModel>();
 		services.AddTransient<SettingsPage>();

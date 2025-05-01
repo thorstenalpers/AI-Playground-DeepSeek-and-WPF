@@ -18,9 +18,6 @@
     <data name="SettingsPagePersonalizationTitle" xml:space="preserve">
         <value>Personalization</value>
     </data>
-    <data name="SettingsPagePrivacyStatementText" xml:space="preserve">
-        <value>Privacy Statement</value>
-    </data>
     <data name="SettingsPageRadioButtonDarkTheme" xml:space="preserve">
         <value>Dark</value>
     </data>
@@ -30,29 +27,8 @@
     <data name="SettingsPageRadioButtonWindowsDefaultTheme" xml:space="preserve">
         <value>Default</value>
     </data>
-    <data name="ShellListDetailsPage" xml:space="preserve">
-		    <value>ListDetails</value>
-    </data>
-    <data name="ListDetailsPageTitle" xml:space="preserve">
-		    <value>ListDetails</value>
-    </data>
-    <data name="ListDetailsListDescription" xml:space="preserve">
-		    <value>Sample Orders</value>
-    </data>
-    <data name="ShellContentGridPage" xml:space="preserve">
-		    <value>ContentGrid</value>
-    </data>
-    <data name="ContentGridPageTitle" xml:space="preserve">
-		    <value>ContentGrid</value>
-    </data>
-    <data name="ShellDataGridPage" xml:space="preserve">
-		    <value>DataGrid</value>
-    </data>
-    <data name="DataGridPageTitle" xml:space="preserve">
-		    <value>DataGrid</value>
-    </data>
     <data name="ShellWebViewPage" xml:space="preserve">
-		    <value>WebView</value>
+		    <value>Browser</value>
     </data>
     <data name="WebViewPageBackButtonTooltip" xml:space="preserve">
         <value>Back (Alt + Left)</value>
@@ -73,10 +49,10 @@
         <value>Open in browser (Ctrl + T)</value>
     </data>
     <data name="ShellMainPage" xml:space="preserve">
-		    <value>Main</value>
+		    <value>Home</value>
     </data>
     <data name="MainPageTitle" xml:space="preserve">
-		    <value>Main</value>
+		    <value>Home</value>
     </data>
     <data name="ShellGoBackButton" xml:space="preserve">
         <value>Go back</value>
