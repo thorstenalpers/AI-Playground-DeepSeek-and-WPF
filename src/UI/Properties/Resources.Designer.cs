@@ -115,7 +115,7 @@ namespace DeepSeek.WPF.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Settings page placeholder text.  Your app description goes here..
+        ///   Looks up a localized string similar to This project is a C# WPF desktop application demonstrating how to interact with DeepSeek, an advanced language model, from a Windows application built with .NET. The goal is to explore integrating AI capabilities directly into modern desktop apps using clean, maintainable C# code..
         /// </summary>
         public static string SettingsPageAboutText {
             get {

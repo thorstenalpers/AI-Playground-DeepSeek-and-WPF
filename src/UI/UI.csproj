@@ -7,8 +7,10 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ImplicitUsings>enable</ImplicitUsings>
 	<RootNamespace>DeepSeek.WPF.UI</RootNamespace>
+	<ApplicationIcon>Assets\logo-black.ico</ApplicationIcon>
+	<AssemblyName>DeepSeek.WPF</AssemblyName>
   </PropertyGroup>
-  
+    
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
@@ -18,6 +20,12 @@
   
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Resource Include="Assets\logo-black.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
