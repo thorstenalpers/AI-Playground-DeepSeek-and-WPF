@@ -1,19 +1,22 @@
 nameOverride: ""
 namespaceOverride: ""
-
 ollama:
   # -- Automatically install Ollama Helm chart from https://otwld.github.io/ollama-helm/. Use [Helm Values](https://github.com/otwld/ollama-helm/#helm-values) to configure
   enabled: true
   # -- If enabling embedded Ollama, update fullnameOverride to your desired Ollama name value, or else it will use the default ollama.name value from the Ollama chart
   fullnameOverride: "open-webui-ollama"
   # -- Example Ollama configuration with nvidia GPU enabled, automatically downloading a model, and deploying a PVC for model persistence
-  # ollama:
+  ollama:
   #   gpu:
   #     enabled: true
   #     type: 'nvidia'
   #     number: 1
-  #   models:
-  #     - llama3
+    models:
+      pull:
+        - llama3
+        - deepseek-r1:1.5b
+      run:
+        - llama3
   # runtimeClassName: nvidia
   # persistentVolume:
   #   enabled: true
@@ -31,6 +34,83 @@ tika:
 
 # -- A list of Ollama API endpoints. These can be added in lieu of automatically installing the Ollama Helm chart, or in addition to it.
 ollamaUrls: []
+
+# -- Disables taking Ollama Urls from `ollamaUrls`  list
+ollamaUrlsFromExtraEnv: false
+
+websocket:
+  # -- Enables websocket support in Open WebUI with env `ENABLE_WEBSOCKET_SUPPORT`
+  enabled: false
+  # -- Specifies the websocket manager to use with env `WEBSOCKET_MANAGER`: redis (default)
+  manager: redis
+  # -- Specifies the URL of the Redis instance for websocket communication. Template with `redis://[:<password>@]<hostname>:<port>/<db>`
+  url: redis://open-webui-redis:6379/0
+  # -- Deploys a redis
+  redis:
+    # -- Enable redis installation
+    enabled: true
+    # -- Redis name
+    name: open-webui-redis
+    # -- Redis labels
+    labels: {}
+    # -- Redis annotations
+    annotations: {}
+    # -- Redis pod
+    pods:
+      # -- Redis pod annotations
+      annotations: {}
+    # -- Redis image
+    image:
+      repository: redis
+      tag: 7.4.2-alpine3.21
+      pullPolicy: IfNotPresent
+    # -- Redis command (overrides default)
+    command: []
+    # -- Redis arguments (overrides default)
+    args: []
+    # -- Redis resources
+    resources: {}
+    # -- Redis service
+    service:
+      # -- Redis container/target port
+      containerPort: 6379
+      # -- Redis service type
+      type: ClusterIP
+      # -- Redis service labels
+      labels: {}
+      # -- Redis service annotations
+      annotations: {}
+      # -- Redis service port
+      port: 6379
+      # -- Redis service node port. Valid only when type is `NodePort`
+      nodePort: ""
+    # -- Redis tolerations for pod assignment
+    tolerations: []
+
+    # -- Redis affinity for pod assignment
+    affinity: {}
+
+    # -- Redis security context
+    securityContext:
+      {}
+      # runAsUser: 999
+      # runAsGroup: 1000
+
+# -- Deploys a Redis cluster with subchart 'redis' from bitnami
+redis-cluster:
+  # -- Enable Redis installation
+  enabled: false
+  # -- Redis cluster name (recommended to be 'open-webui-redis')
+  # - In this case, redis url will be 'redis://open-webui-redis-master:6379/0' or 'redis://[:<password>@]open-webui-redis-master:6379/0'
+  fullnameOverride: open-webui-redis
+  # -- Redis Authentication
+  auth:
+    # -- Enable Redis authentication (disabled by default). For your security, we strongly suggest that you switch to 'auth.enabled=true'
+    enabled: false
+  # -- Replica configuration for the Redis cluster
+  replica:
+    # -- Number of Redis replica instances
+    replicaCount: 3
 
 # -- Value of cluster domain
 clusterDomain: cluster.local
@@ -95,11 +175,16 @@ resources: {}
 copyAppData:
   resources: {}
 
+managedCertificate:
+  enabled: false
+  name: "mydomain-chat-cert" # You can override this name if needed
+  domains:
+    - chat.example.com # update to your real domain
+
 ingress:
   enabled: true
   class: ""
   # -- Use appropriate annotations for your Ingress controller, e.g., for NGINX:
-  # nginx.ingress.kubernetes.io/rewrite-target: /
   annotations:
     kubernetes.io/ingress.class: nginx 
   host: "open-webui.localhost"
@@ -119,6 +204,33 @@ persistence:
   storageClass: ""
   selector: {}
   annotations: {}
+  # -- Sets the storage provider, availables values are `local`, `s3`, `gcs` or `azure`
+  provider: local
+  s3:
+    # -- Sets the access key ID for S3 storage
+    accessKey: ""
+    # -- Sets the secret access key for S3 storage
+    secretKey: ""
+    # -- Sets the endpoint url for S3 storage
+    endpointUrl: ""
+    # -- Sets the region name for S3 storage
+    region:	""
+    # -- Sets the bucket name for S3 storage
+    bucket:	""
+    # -- Sets the key prefix for a S3 object
+    keyPrefix: ""
+  gcs:
+    # -- Contents of Google Application Credentials JSON file. Optional - if not provided, credentials will be taken from the environment. User credentials if run locally and Google Metadata server if run on a Google Compute Engine. File can be generated for a service account following this guide: https://developers.google.com/workspace/guides/create-credentials#service-account
+    appCredentialsJson: ""
+    # -- Sets the bucket name for Google Cloud Storage. Bucket must already exist
+    bucket: ""
+  azure:
+    # -- Sets the endpoint URL for Azure Storage
+    endpointUrl: ""
+    # -- Sets the container name for Azure Storage
+    container: ""
+    # -- Set the access key for Azure Storage. Optional - if not provided, credentials will be taken from the environment. User credentials if run locally and Managed Identity if run in Azure services
+    key: ""
 
 # -- Node labels for pod assignment.
 nodeSelector: {}
@@ -132,6 +244,9 @@ affinity: {}
 # -- Topology Spread Constraints for pod assignment
 topologySpreadConstraints: []
 
+# -- HostAliases to be added to hosts-file of each container
+hostAliases: []
+
 # -- Service values to expose Open WebUI pods to cluster
 service:
   type: ClusterIP
@@ -142,8 +257,17 @@ service:
   labels: {}
   loadBalancerClass: ""
 
+# -- Enables the use of OpenAI APIs
+enableOpenaiApi: true
+
 # -- OpenAI base API URL to use. Defaults to the Pipelines service endpoint when Pipelines are enabled, and "https://api.openai.com/v1" if Pipelines are not enabled and this value is blank
-openaiBaseApiUrl: ""
+openaiBaseApiUrl: "https://api.openai.com/v1"
+
+# -- OpenAI base API URLs to use. Overwrites the value in openaiBaseApiUrl if set
+openaiBaseApiUrls:
+  []
+  # - "https://api.openai.com/v1"
+  # - "https://api.company.openai.com/v1"
 
 # -- Env vars added to the Open WebUI deployment. Most up-to-date environment variables can be found here: https://docs.openwebui.com/getting-started/env-configuration/
 extraEnvVars:
@@ -162,6 +286,17 @@ extraEnvVars:
   # - name: OLLAMA_DEBUG
   #   value: "1"
 
+# -- Env vars added from configmap or secret to the Open WebUI deployment. Most up-to-date environment variables can be found here: https://docs.openwebui.com/getting-started/env-configuration/ (caution: `extraEnvVars` will take precedence over the value from `extraEnvFrom`)
+extraEnvFrom: []
+  # - configMapRef:
+  #     name: my-config
+  # - secretRef:
+  #     name: my-secret
+
+# -- Configure runtime class
+# ref: <https://kubernetes.io/docs/concepts/containers/runtime-class/>
+runtimeClassName: ""
+
 # -- Configure container volume mounts
 # ref: <https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/>
 volumeMounts:
@@ -171,6 +306,16 @@ volumeMounts:
   container: []
   # - name: ""
   #   mountPath: ""
+
+# -- Additional init containers to add to the deployment/statefulset
+# ref: <https://kubernetes.io/docs/concepts/workloads/pods/init-containers/>
+extraInitContainers: []
+# - name: custom-init
+#   image: busybox:latest
+#   command: ['sh', '-c', 'echo "Custom init container running"']
+#   volumeMounts:
+#   - name: data
+#     mountPath: /data
 
 # -- Configure pod volumes
 # ref: <https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/>
@@ -182,14 +327,13 @@ volumes: []
 #   emptyDir: {}
 
 # -- Configure pod security context
-# ref: <https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-containe>
+# ref: <https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container>
 podSecurityContext:
   {}
   # fsGroupChangePolicy: Always
   # sysctls: []
   # supplementalGroups: []
   # fsGroup: 1001
-
 
 # -- Configure container security context
 # ref: <https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-containe>
@@ -206,4 +350,138 @@ containerSecurityContext:
   #     - ALL
   # seccompProfile:
   #   type: "RuntimeDefault"
+
+sso:
+  # -- **Enable SSO authentication globally** must enable to use SSO authentication
+  # @section -- SSO Configuration
+  enabled: false
+  # -- Enable account creation when logging in with OAuth (distinct from regular signup)
+  # @section -- SSO Configuration
+  enableSignup: false
+  # -- Allow logging into accounts that match email from OAuth provider (considered insecure)
+  # @section -- SSO Configuration
+  mergeAccountsByEmail: false
+  # -- Enable OAuth role management through access token roles claim
+  # @section -- SSO Configuration
+  enableRoleManagement: false
+  # -- Enable OAuth group management through access token groups claim
+  # @section -- SSO Configuration
+  enableGroupManagement: false
+
+  google:
+    # -- Enable Google OAuth
+    # @section -- Google OAuth configuration
+    enabled: false
+    # -- Google OAuth client ID
+    # @section -- Google OAuth configuration
+    clientId: ""
+    # -- Google OAuth client secret
+    # @section -- Google OAuth configuration
+    clientSecret: ""
+
+  microsoft:
+    # -- Enable Microsoft OAuth
+    # @section -- Microsoft OAuth configuration
+    enabled: false
+    # -- Microsoft OAuth client ID
+    # @section -- Microsoft OAuth configuration
+    clientId: ""
+    # -- Microsoft OAuth client secret
+    # @section -- Microsoft OAuth configuration
+    clientSecret: ""
+    # -- Microsoft tenant ID - use 9188040d-6c67-4c5b-b112-36a304b66dad for personal accounts
+    # @section -- Microsoft OAuth configuration
+    tenantId: ""
+
+  github:
+    # -- Enable GitHub OAuth
+    # @section -- GitHub OAuth configuration
+    enabled: false
+    # -- GitHub OAuth client ID
+    # @section -- GitHub OAuth configuration
+    clientId: ""
+    # -- GitHub OAuth client secret
+    # @section -- GitHub OAuth configuration
+    clientSecret: ""
+
+  oidc:
+    # -- Enable OIDC authentication
+    # @section -- OIDC configuration
+    enabled: false
+    # -- OIDC client ID
+    # @section -- OIDC configuration
+    clientId: ""
+    # -- OIDC client secret
+    # @section -- OIDC configuration
+    clientSecret: ""
+    # -- OIDC provider well known URL
+    # @section -- OIDC configuration
+    providerUrl: ""
+    # -- Name of the provider to show on the UI
+    # @section -- OIDC configuration
+    providerName: "SSO"
+    # -- Scopes to request (space-separated).
+    # @section -- OIDC configuration
+    scopes: "openid email profile"
+
+  roleManagement:
+    # -- The claim that contains the roles (can be nested, e.g., user.roles)
+    # @section -- Role management configuration
+    rolesClaim: "roles"
+    # -- Comma-separated list of roles allowed to log in (receive open webui role user)
+    # @section -- Role management configuration
+    allowedRoles: ""
+    # -- Comma-separated list of roles allowed to log in as admin (receive open webui role admin)
+    # @section -- Role management configuration
+    adminRoles: ""
+
+  groupManagement:
+    # -- The claim that contains the groups (can be nested, e.g., user.memberOf)
+    # @section -- SSO Configuration
+    groupsClaim: "groups"
+
+  trustedHeader:
+    # -- Enable trusted header authentication
+    # @section -- SSO trusted header authentication
+    enabled: false
+    # -- Header containing the user's email address
+    # @section -- SSO trusted header authentication
+    emailHeader: ""
+    # -- Header containing the user's name (optional, used for new user creation)
+    # @section -- SSO trusted header authentication
+    nameHeader: ""
+
+# -- Extra resources to deploy with Open WebUI
+extraResources:
+  []
+  # - apiVersion: v1
+  #   kind: ConfigMap
+  #   metadata:
+  #     name: example-configmap
+  #   data:
+  #     example-key: example-value
+
+# -- Configure database URL, needed to work with Postgres (example: `postgresql://<user>:<password>@<service>:<port>/<database>`), leave empty to use the default sqlite database
+databaseUrl: ""
+
+# -- Postgresql configuration (see. https://artifacthub.io/packages/helm/bitnami/postgresql)
+postgresql:
+  enabled: false
+  fullnameOverride: open-webui-postgres
+  architecture: standalone
+  auth:
+    database: open-webui
+    postgresPassword: 0p3n-w3bu!
+    username: open-webui
+    password: 0p3n-w3bu!
+  primary:
+    persistence:
+      size: 1Gi
+    resources:
+      requests:
+        memory: 256Mi
+        cpu: 250m
+      limits:
+        memory: 512Mi
+        cpu: 500m
 
