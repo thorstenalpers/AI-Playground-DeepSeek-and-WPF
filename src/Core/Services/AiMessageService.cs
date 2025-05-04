@@ -7,15 +7,17 @@ namespace DeepSeek.WPF.Core.Services;
 
 public class AiMessageService : IAiMessageService
 {
-    private readonly string ollamaEndpoint = "http://localhost:51042/api/generate";
+    private const string ollamaBaseUrl = "http://localhost:30347";
+    private const string ollamaModel = "llama3";// deepseek-r1:1.5b, llama3
+    private readonly string ollamaEndpoint = ollamaBaseUrl + "/api/generate";
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly OllamaApiClient _ollamaClient;
 
     public AiMessageService(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
-        _ollamaClient = new OllamaApiClient(new Uri("http://localhost:51042"));
-        _ollamaClient.SelectedModel = "llama3";// deepseek-r1:1.5b, llama3
+        _ollamaClient = new OllamaApiClient(new Uri(ollamaBaseUrl));
+        _ollamaClient.SelectedModel = ollamaModel;
     }
 
     public async Task<string> SendPromptViaHttpAsync(string prompt)
@@ -25,12 +27,12 @@ public class AiMessageService : IAiMessageService
         {
             var requestBody = new
             {
-                model = "deepseek-r1:1.5b", // deepseek-r1:1.5b, llama3
+                model = ollamaModel,
                 prompt
             };
 
             var jsonContent = JsonConvert.SerializeObject(requestBody);
-            StringContent content = new(jsonContent, Encoding.UTF8, "application/json");
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
             var response = await httpClient.PostAsync(ollamaEndpoint, content);
 

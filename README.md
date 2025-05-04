@@ -35,9 +35,14 @@ helm upgrade --install ollama ollama-helm/ollama \
   --version 1.15.0 \
   -f "./infrastructure/charts/ollama/values.yaml" \
   --wait
+
+# install a permanent port-forwarding using a nodeport 
+helm upgrade --install ingress-nodeports 
+  "./infrastructure/charts/ingress-nodeports/" \
+  --wait
 ```
 
-The WebUI will be available at http://open-webui.localhost
+The WebUI will be also available at http://open-webui.localhost
 
 
 ## 📂 Project Structure
@@ -45,19 +50,17 @@ The WebUI will be available at http://open-webui.localhost
 ```bash
 infrastructure/
 ├── charts/
-│   ├── open-webui/
-│   │   └── values.yaml
-│   └── ollama/
-│       └── values.yaml
-└── create-ssl-certificate/
-    └── create-and-apply-certificate.cmd
+    ├── open-webui/
+    │   └── values.yaml
+    │── ollama/
+    │   └── values.yaml
+    └── ingress-nodeports/
 ```
 
 
 ### TODO
 
 * Improve the UI's grid layout and widgets
-* Set up permanent port forwarding or SSL with DNS names
 * Add different UI widgets, such as:
-  * Picture views
+  * Picture or PDF views to render attachments
   * Tables dynamically filled by AI
