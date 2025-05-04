@@ -24,83 +24,86 @@ namespace DeepSeek.WPF.UI;
 // Tracking issue for improving this is https://github.com/dotnet/wpf/issues/1946
 public partial class App : Application
 {
-	private IHost _host;
+    private IHost _host;
 
-	public T GetService<T>()
-		where T : class
-		=> _host.Services.GetService(typeof(T)) as T;
+    public T GetService<T>()
+        where T : class
+        => _host.Services.GetService(typeof(T)) as T;
 
-	public App()
-	{
-	}
+    public App()
+    {
+    }
 
-	private async void OnStartup(object sender, StartupEventArgs e)
-	{
-		string appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+    private async void OnStartup(object sender, StartupEventArgs e)
+    {
+        var appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
-		// For more information about .NET generic host see  https://docs.microsoft.com/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-3.0
-		_host = Host.CreateDefaultBuilder(e.Args)
-				.ConfigureAppConfiguration(c =>
-				{
-					c.SetBasePath(appLocation);
-				})
-				.ConfigureServices(ConfigureServices)
-				.Build();
+        // For more information about .NET generic host see  https://docs.microsoft.com/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-3.0
+        _host = Host.CreateDefaultBuilder(e.Args)
+                .ConfigureAppConfiguration(c =>
+                {
+                    c.SetBasePath(appLocation);
+                })
+                .ConfigureServices(ConfigureServices)
+                .Build();
 
-		await _host.StartAsync();
-	}
+        await _host.StartAsync();
+    }
 
-	private void ConfigureServices(HostBuilderContext context, IServiceCollection services)
-	{
-		// TODO: Register your services, viewmodels and pages here
+    internal static void ConfigureServices(HostBuilderContext context, IServiceCollection services)
+    {
+        // TODO: Register your services, viewmodels and pages here
 
-		// App Host
-		services.AddHostedService<ApplicationHostService>();
+        // App Host
+        services.AddHostedService<ApplicationHostService>();
 
-		// Activation Handlers
+        // Activation Handlers
 
-		// Core Services
-		services.AddSingleton<IFileService, FileService>();
+        // Core Services
+        services.AddSingleton<IFileService, FileService>();
 
-		// Services
-		services.AddSingleton<IWindowManagerService, WindowManagerService>();
-		services.AddSingleton<IApplicationInfoService, ApplicationInfoService>();
-		services.AddSingleton<IPersistAndRestoreService, PersistAndRestoreService>();
-		services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
-		services.AddSingleton<ISystemService, SystemService>();
-		services.AddSingleton<IPageService, PageService>();
-		services.AddSingleton<INavigationService, NavigationService>();
+        // Services
+        services.AddSingleton<IWindowManagerService, WindowManagerService>();
+        services.AddSingleton<IApplicationInfoService, ApplicationInfoService>();
+        services.AddSingleton<IPersistAndRestoreService, PersistAndRestoreService>();
+        services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
+        services.AddSingleton<ISystemService, SystemService>();
+        services.AddSingleton<IPageService, PageService>();
+        services.AddSingleton<INavigationService, NavigationService>();
+        services.AddSingleton<IAiMessageService, AiMessageService>();
 
-		// Views and ViewModels
-		services.AddTransient<IShellWindow, ShellWindow>();
-		services.AddTransient<ShellViewModel>();
+        // Views and ViewModels
+        services.AddTransient<IShellWindow, ShellWindow>();
+        services.AddTransient<ShellViewModel>();
 
-		services.AddTransient<MainViewModel>();
-		services.AddTransient<MainPage>();
+        services.AddTransient<MainViewModel>();
+        services.AddTransient<MainPage>();
 
-		services.AddTransient<WebViewViewModel>();
-		services.AddTransient<WebViewPage>();
+        services.AddTransient<WebViewViewModel>();
+        services.AddTransient<WebViewPage>();
 
-		services.AddTransient<SettingsViewModel>();
-		services.AddTransient<SettingsPage>();
+        services.AddTransient<SettingsViewModel>();
+        services.AddTransient<SettingsPage>();
 
-		services.AddTransient<IShellDialogWindow, ShellDialogWindow>();
-		services.AddTransient<ShellDialogViewModel>();
+        services.AddHttpClient();
 
-		// Configuration
-		services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
-	}
+        services.AddTransient<IShellDialogWindow, ShellDialogWindow>();
+        services.AddTransient<ShellDialogViewModel>();
 
-	private async void OnExit(object sender, ExitEventArgs e)
-	{
-		await _host.StopAsync();
-		_host.Dispose();
-		_host = null;
-	}
+        // Configuration
+        services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
+    }
 
-	private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
-	{
-		// TODO: Please log and handle the exception as appropriate to your scenario
-		// For more info see https://docs.microsoft.com/dotnet/api/system.windows.application.dispatcherunhandledexception?view=netcore-3.0
-	}
+    private async void OnExit(object sender, ExitEventArgs e)
+    {
+        await _host.StopAsync();
+        _host.Dispose();
+        _host = null;
+    }
+
+    private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+    {
+        // TODO: Please log and handle the exception as appropriate to your scenario
+        // For more info see https://docs.microsoft.com/dotnet/api/system.windows.application.dispatcherunhandledexception?view=netcore-3.0
+    }
 }

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:properties="clr-namespace:DeepSeek.WPF.UI.Properties"
+	xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -17,14 +18,46 @@
             Style="{StaticResource PageTitleStyle}"
             Margin="{StaticResource MediumLeftMargin}"
             Text="{x:Static properties:Resources.MainPageTitle}" />
-        <Grid
-            Grid.Row="1"
-            Margin="{StaticResource MediumLeftRightMargin}"
-            Background="{DynamicResource MahApps.Brushes.Gray10}">
-            <!--
-            The Mahapps Gray10 color represents where you should place your content.
-            Place your content here.
-            -->
-        </Grid>
-    </Grid>
+		<Grid Grid.Row="1"
+      Margin="{StaticResource MediumLeftRightMargin}"
+      Background="{DynamicResource MahApps.Brushes.Gray10}">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<!-- Label -->
+			<TextBlock Text="Ask something:"
+               Margin="0,0,0,5"
+               FontWeight="Bold"
+               Grid.Row="0" />
+
+			<!-- Input + Button -->
+			<DockPanel LastChildFill="True"
+               Margin="0,0,0,10"
+               Grid.Row="1">
+				<TextBox x:Name="UserInputTextBox"
+                 Height="30"
+                 Margin="0,0,10,0"
+                 VerticalAlignment="Center"
+                 mah:TextBoxHelper.Watermark="Type your question..." />
+				<Button x:Name="SendButton"
+                Content="Send"
+                Width="60"
+                Height="30" Click="SendButton_Click"/>
+			</DockPanel>
+
+			<!-- Output -->
+			<TextBox x:Name="OutputTextBox"
+             Grid.Row="2"
+             VerticalScrollBarVisibility="Auto"
+             AcceptsReturn="True"
+             IsReadOnly="True"
+             TextWrapping="Wrap"
+             FontFamily="Consolas"
+             Background="#f5f5f5"
+             Padding="10" />
+		</Grid>
+	</Grid>
 </Page>
