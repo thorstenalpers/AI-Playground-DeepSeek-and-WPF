@@ -56,8 +56,8 @@ infrastructure/
 
 ### TODO
 
- - improve UI's grid and widgets
- - permanent port forwarding or SSL with dns names
- - different UI widgets, 
-   - like picture views or 
-   - tables which will be filled by AI
+* Improve the UI's grid layout and widgets
+* Set up permanent port forwarding or SSL with DNS names
+* Add different UI widgets, such as:
+  * Picture views
+  * Tables dynamically filled by AI
