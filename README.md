@@ -19,8 +19,6 @@ helm repo add ollama-helm https://otwld.github.io/ollama-helm/
 helm repo update
 ```
 
-The WebUI will be available at http://open-webui.localhost
-
 ### 2. Install WebUI and Ollama
 
 This will install the charts with preconfigured values, like used LLMs, browser pathes and ports.
@@ -39,6 +37,9 @@ helm upgrade --install ollama ollama-helm/ollama \
   --wait
 ```
 
+The WebUI will be available at http://open-webui.localhost
+
+
 ### 3. 🔒 Create a Self-Signed SSL Certificate
 
 Run the provided script to:
@@ -46,11 +47,11 @@ Run the provided script to:
 - Generate a self-signed certificate
 - Deploy it as a Kubernetes secret for NGINX reverse proxy
 
-```powershell
+```bash
 .\infrastructure\create-ssl-certificate\create-and-apply-certificate.cmd
 ```
 
-You must manually install the certificate in your system's **Trusted Root Certification Authorities** to avoid browser warnings.
+You must manually install the generated certificate server.crt in your user's **Trusted Root Certification Authorities** to avoid browser warnings.
 
 
 
