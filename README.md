@@ -61,6 +61,7 @@ infrastructure/
 ### TODO
 
 * Improve the UI's grid layout and widgets
+* Screenshots or gifs and architecture diagram
 * Add different UI widgets, such as:
   * Picture or PDF views to render attachments
   * Tables dynamically filled by AI
