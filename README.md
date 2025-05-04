@@ -52,3 +52,12 @@ infrastructure/
 └── create-ssl-certificate/
     └── create-and-apply-certificate.cmd
 ```
+
+
+### TODO
+
+ - improve UI's grid and widgets
+ - permanent port forwarding or SSL with dns names
+ - different UI widgets, 
+   - like picture views or 
+   - tables which will be filled by AI

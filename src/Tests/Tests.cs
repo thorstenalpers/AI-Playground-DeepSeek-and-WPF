@@ -6,8 +6,8 @@ namespace DeepSeek.WPF.Tests;
 [Category("Unit")]
 public class Tests
 {
-	[Test]
-	public void TestMethod1()
-	{
-	}
+    [Test]
+    public void TestMethod1()
+    {
+    }
 }

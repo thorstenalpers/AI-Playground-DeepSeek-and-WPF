@@ -81,7 +81,7 @@ public class NavigationService : INavigationService
     {
         if (sender is Frame frame)
         {
-            bool clearNavigation = (bool)frame.Tag;
+            var clearNavigation = (bool)frame.Tag;
             if (clearNavigation)
             {
                 frame.CleanNavigation();

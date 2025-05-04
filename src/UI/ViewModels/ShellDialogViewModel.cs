@@ -19,7 +19,7 @@ public class ShellDialogViewModel : ObservableObject
 
     private void OnClose()
     {
-        bool result = true;
+        var result = true;
         SetResult(result);
     }
 }

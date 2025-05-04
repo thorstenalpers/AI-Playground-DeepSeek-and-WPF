@@ -38,7 +38,7 @@ public class PersistAndRestoreService : IPersistAndRestoreService
         {
             foreach (DictionaryEntry property in properties)
             {
-				System.Windows.Application.Current.Properties.Add(property.Key, property.Value);
+                System.Windows.Application.Current.Properties.Add(property.Key, property.Value);
             }
         }
     }

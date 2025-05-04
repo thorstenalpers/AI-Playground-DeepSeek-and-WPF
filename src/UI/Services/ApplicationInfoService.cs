@@ -13,7 +13,7 @@ public class ApplicationInfoService : IApplicationInfoService
     public Version GetVersion()
     {
         // Set the app version in DeepSeek.WPF > Properties > Package > PackageVersion
-        string assemblyLocation = Assembly.GetExecutingAssembly().Location;
+        var assemblyLocation = Assembly.GetExecutingAssembly().Location;
         var version = FileVersionInfo.GetVersionInfo(assemblyLocation).FileVersion;
         return new Version(version);
     }

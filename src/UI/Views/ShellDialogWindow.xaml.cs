@@ -7,19 +7,19 @@ namespace DeepSeek.WPF.UI.Views;
 
 public partial class ShellDialogWindow : MetroWindow, IShellDialogWindow
 {
-	public ShellDialogWindow(ShellDialogViewModel viewModel)
-	{
-		InitializeComponent();
-		viewModel.SetResult = OnSetResult;
-		DataContext = viewModel;
-	}
+    public ShellDialogWindow(ShellDialogViewModel viewModel)
+    {
+        InitializeComponent();
+        viewModel.SetResult = OnSetResult;
+        DataContext = viewModel;
+    }
 
-	public Frame GetDialogFrame()
-		=> dialogFrame;
+    public Frame GetDialogFrame()
+        => dialogFrame;
 
-	private void OnSetResult(bool? result)
-	{
-		DialogResult = result;
-		Close();
-	}
+    private void OnSetResult(bool? result)
+    {
+        DialogResult = result;
+        Close();
+    }
 }
