@@ -40,21 +40,6 @@ helm upgrade --install ollama ollama-helm/ollama \
 The WebUI will be available at http://open-webui.localhost
 
 
-### 3. 🔒 Create a Self-Signed SSL Certificate
-
-Run the provided script to:
-
-- Generate a self-signed certificate
-- Deploy it as a Kubernetes secret for NGINX reverse proxy
-
-```bash
-.\infrastructure\create-ssl-certificate\create-and-apply-certificate.cmd
-```
-
-You must manually install the generated certificate server.crt in your user's **Trusted Root Certification Authorities** to avoid browser warnings.
-
-
-
 ## 📂 Project Structure
 
 ```bash

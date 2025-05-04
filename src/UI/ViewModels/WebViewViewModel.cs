@@ -11,7 +11,7 @@ namespace DeepSeek.WPF.UI.ViewModels;
 
 public class WebViewViewModel : ObservableObject
 {
-	private const string DefaultUrl = "https://chat.deepseek.com/";
+	private const string DefaultUrl = "http://open-webui.localhost";    // change to https when not using localhost
 
 	private readonly ISystemService _systemService;
 
