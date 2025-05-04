@@ -1,8 +1,6 @@
-﻿# DeepSeek.WPF
+﻿# AI Playground (DeepSeek and WPF)
 
-**DeepSeek.WPF** is a self-hosted AI assistant powered by [Open WebUI](https://github.com/open-webui/open-webui) and [Ollama](https://github.com/jmorganca/ollama), deployed via Helm on Kubernetes.
-
----
+**AI Playground (DeepSeek and WPF)** is a simple WPF application that integrates DeepSeek both in code and via a WebUI.
 
 ## 🚀 Installation Guide
 
@@ -10,9 +8,6 @@
 
 - Kubernetes cluster (e.g., Minikube, k3s, or managed service)
 - Helm installed (`v3+`)
-- PowerShell (for Windows users running scripts)
-- Admin privileges (to install SSL certs)
-
 
 ## 📦 Step-by-Step Installation
 
@@ -40,18 +35,7 @@ helm upgrade --install ollama ollama-helm/ollama \
   --wait
 ```
 
-
-### 3. (Optional) Generate New `values.yaml` Files
-
-Use this if you want to customize Helm chart values:
-
-```bash
-helm show values open-webui/open-webui --version 6.4.0 > ./infrastructure/charts/open-webui/values.yaml
-helm show values ollama-helm/ollama --version 1.15.0 > ./infrastructure/charts/ollama/values.yaml
-```
-
-
-### 4. 🔒 Create a Self-Signed SSL Certificate
+### 3. 🔒 Create a Self-Signed SSL Certificate
 
 Run the provided script to:
 
