@@ -6,8 +6,8 @@
 
 ### 🛠 Prerequisites
 
-- Kubernetes cluster (e.g., Minikube, k3s, or managed service)
-- Helm installed (`v3+`)
+- Kubernetes cluster (e.g., [k3s / Rancher](https://github.com/rancher-sandbox/rancher-desktop), MiniKube, or managed service) 
+- [Helm](https://github.com/helm/helm) installed (`v3+`)
 
 ## 📦 Step-by-Step Installation
 
@@ -19,16 +19,20 @@ helm repo add ollama-helm https://otwld.github.io/ollama-helm/
 helm repo update
 ```
 
-### 2. Install with Preconfigured Values
+The WebUI will be available at http://open-webui.localhost
 
-Make sure the values files exist in your project directory (`./infrastructure/charts/...`):
+### 2. Install WebUI and Ollama
+
+This will install the charts with preconfigured values, like used LLMs, browser pathes and ports.
 
 ```bash
+# install WebUI with DeepSeek and llama3
 helm upgrade --install open-webui open-webui/open-webui \
   --version 6.4.0 \
   -f "./infrastructure/charts/open-webui/values.yaml" \
   --wait
 
+# install a standalone version of DeepSeek
 helm upgrade --install ollama ollama-helm/ollama \
   --version 1.15.0 \
   -f "./infrastructure/charts/ollama/values.yaml" \
@@ -46,7 +50,7 @@ Run the provided script to:
 .\infrastructure\create-ssl-certificate\create-and-apply-certificate.cmd
 ```
 
-🧠 **Note**: You must manually install the certificate in your system's **Trusted Root Certification Authorities** to avoid browser warnings.
+You must manually install the certificate in your system's **Trusted Root Certification Authorities** to avoid browser warnings.
 
 
 
