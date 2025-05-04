@@ -13,7 +13,6 @@
 - PowerShell (for Windows users running scripts)
 - Admin privileges (to install SSL certs)
 
----
 
 ## 📦 Step-by-Step Installation
 
@@ -41,7 +40,6 @@ helm upgrade --install ollama ollama-helm/ollama \
   --wait
 ```
 
----
 
 ### 3. (Optional) Generate New `values.yaml` Files
 
@@ -52,7 +50,6 @@ helm show values open-webui/open-webui --version 6.4.0 > ./infrastructure/charts
 helm show values ollama-helm/ollama --version 1.15.0 > ./infrastructure/charts/ollama/values.yaml
 ```
 
----
 
 ### 4. 🔒 Create a Self-Signed SSL Certificate
 
@@ -67,7 +64,7 @@ Run the provided script to:
 
 🧠 **Note**: You must manually install the certificate in your system's **Trusted Root Certification Authorities** to avoid browser warnings.
 
----
+
 
 ## 📂 Project Structure
 
@@ -81,15 +78,3 @@ infrastructure/
 └── create-ssl-certificate/
     └── create-and-apply-certificate.cmd
 ```
-
----
-
-## 🤝 Contributing
-
-Pull requests and issues are welcome. Please follow conventional commit guidelines and open issues for significant feature proposals.
-
----
-
-## 📄 License
-
-MIT License — see `LICENSE` file for details.
