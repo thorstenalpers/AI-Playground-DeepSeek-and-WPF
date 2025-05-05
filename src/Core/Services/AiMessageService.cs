@@ -55,7 +55,7 @@ public class AiMessageService : IAiMessageService
     public async Task<string> SendPromptViaLibraryAsync(string prompt)
     {
         var result = "";
-        await foreach (var response in _ollamaClient.GenerateAsync(prompt))
+        await foreach (var response in _ollamaClient.GenerateAsync(prompt).ConfigureAwait(false))
         {
             result += response.Response;
         }
