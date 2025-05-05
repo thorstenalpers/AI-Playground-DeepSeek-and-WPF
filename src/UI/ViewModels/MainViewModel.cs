@@ -2,23 +2,25 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DeepSeek.WPF.Core.Contracts.Services;
+using DeepSeek.WPF.Core.Models;
+using DeepSeek.WPF.UI.Helpers;
 
 namespace DeepSeek.WPF.UI.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {
     private readonly IAiMessageService _aiMessageService;
-    private ObservableCollection<string> _availableModels;
-    private string _selectedModel;
+    private ObservableCollection<LlmModel> _availableModels;
+    private LlmModel _selectedModel;
 
     public MainViewModel(IAiMessageService aiMessageService)
     {
         _aiMessageService = aiMessageService;
-        AvailableModels = ["deepseek-r1:1.5b", "llama3"];
+        AvailableModels = new ObservableCollection<LlmModel> { LlmModel.DeepSeek_R1_1_5b, LlmModel.Llama3 };
         SelectedModel = AvailableModels.First();
     }
 
-    public ObservableCollection<string> AvailableModels
+    public ObservableCollection<LlmModel> AvailableModels
     {
         get => _availableModels;
         set
@@ -28,7 +30,7 @@ public partial class MainViewModel : ObservableObject
         }
     }
 
-    public string SelectedModel
+    public LlmModel SelectedModel
     {
         get => _selectedModel;
         set => SetProperty(ref _selectedModel, value);
@@ -50,7 +52,9 @@ public partial class MainViewModel : ObservableObject
             Output = "Please enter a question.";
             return;
         }
-        var result = await _aiMessageService.SendPromptViaLibraryAsync(SelectedModel, UserInput);
+        var modelName = SelectedModel.GetDisplayName();
+
+        var result = await _aiMessageService.SendPromptViaLibraryAsync(modelName, UserInput);
         Output = result;
     }
 }
