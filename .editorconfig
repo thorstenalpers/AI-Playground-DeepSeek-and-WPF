@@ -429,3 +429,6 @@ dotnet_diagnostic.RCS1129.severity = warning
 
 # RCS1246: Use element access
 dotnet_diagnostic.RCS1246.severity = warning
+
+# IDE0052: Unused private member
+dotnet_diagnostic.IDE0052.severity = warning
