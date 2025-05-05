@@ -35,8 +35,10 @@ public class AiMessageServiceTests
         // Arrange
         var prompt = "Hi";
 
+        var model = "llama3";
+
         // Act
-        var result = await _aiMessageService.SendPromptViaHttpAsync(prompt);
+        var result = await _aiMessageService.SendPromptViaHttpAsync(model, prompt);
 
         // Assert
         Assert.That(result, Is.Not.Empty);
@@ -48,9 +50,10 @@ public class AiMessageServiceTests
     {
         // Arrange
         var prompt = "Hi";
+        var model = "llama3";
 
         // Act
-        var result = await _aiMessageService.SendPromptViaLibraryAsync(prompt);
+        var result = await _aiMessageService.SendPromptViaLibraryAsync(model, prompt);
 
         // Assert
         Assert.That(result, Is.Not.Empty);

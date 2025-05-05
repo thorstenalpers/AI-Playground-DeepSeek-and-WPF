@@ -33,6 +33,19 @@
                FontWeight="Bold"
                Grid.Row="0" />
 
+			<!-- Dropdown for LLM model selection -->
+			<TextBlock Text="Select LLM Model:"
+               Margin="0,0,0,5"
+               FontWeight="Bold"
+               Grid.Row="1" />
+
+			<ComboBox x:Name="ModelSelectorComboBox"
+                      Width="200"
+                      Margin="0,0,0,10"
+                      SelectedItem="{Binding SelectedModel}"
+                      ItemsSource="{Binding AvailableModels}">
+			</ComboBox>
+
 			<DockPanel LastChildFill="True"
                Margin="0,0,0,10"
                Grid.Row="1">

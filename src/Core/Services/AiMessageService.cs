@@ -8,7 +8,6 @@ namespace DeepSeek.WPF.Core.Services;
 public class AiMessageService : IAiMessageService
 {
     private const string ollamaBaseUrl = "http://localhost:30347";
-    private const string ollamaModel = "llama3";// deepseek-r1:1.5b, llama3
     private readonly string ollamaEndpoint = ollamaBaseUrl + "/api/generate";
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly OllamaApiClient _ollamaClient;
@@ -17,17 +16,16 @@ public class AiMessageService : IAiMessageService
     {
         _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
         _ollamaClient = new OllamaApiClient(new Uri(ollamaBaseUrl));
-        _ollamaClient.SelectedModel = ollamaModel;
     }
 
-    public async Task<string> SendPromptViaHttpAsync(string prompt)
+    public async Task<string> SendPromptViaHttpAsync(string model, string prompt)
     {
         var httpClient = _httpClientFactory.CreateClient();
         try
         {
             var requestBody = new
             {
-                model = ollamaModel,
+                model = model,
                 prompt
             };
 
@@ -52,8 +50,9 @@ public class AiMessageService : IAiMessageService
         }
     }
 
-    public async Task<string> SendPromptViaLibraryAsync(string prompt)
+    public async Task<string> SendPromptViaLibraryAsync(string model, string prompt)
     {
+        _ollamaClient.SelectedModel = model;
         var result = "";
         await foreach (var response in _ollamaClient.GenerateAsync(prompt).ConfigureAwait(false))
         {

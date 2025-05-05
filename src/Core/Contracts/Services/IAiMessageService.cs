@@ -2,6 +2,6 @@
 
 public interface IAiMessageService
 {
-    Task<string> SendPromptViaHttpAsync(string prompt);
-    Task<string> SendPromptViaLibraryAsync(string prompt);
+    Task<string> SendPromptViaHttpAsync(string model, string prompt);
+    Task<string> SendPromptViaLibraryAsync(string model, string prompt);
 }
