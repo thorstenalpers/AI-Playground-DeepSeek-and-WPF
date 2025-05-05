@@ -37,7 +37,6 @@ public class PagesTests
 
         // Services
         services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
-        services.AddSingleton<ISystemService, SystemService>();
         services.AddSingleton<IPersistAndRestoreService, PersistAndRestoreService>();
         services.AddSingleton<IApplicationInfoService, ApplicationInfoService>();
         services.AddSingleton<IPageService, PageService>();
