@@ -178,20 +178,20 @@ namespace DeepSeek.WPF.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open-WebUI.
+        /// </summary>
+        public static string ShellOpenWebUiPage {
+            get {
+                return ResourceManager.GetString("ShellOpenWebUiPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string ShellSettingsPage {
             get {
                 return ResourceManager.GetString("ShellSettingsPage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Open-WebUI.
-        /// </summary>
-        public static string ShellWebViewPage {
-            get {
-                return ResourceManager.GetString("ShellWebViewPage", resourceCulture);
             }
         }
         
