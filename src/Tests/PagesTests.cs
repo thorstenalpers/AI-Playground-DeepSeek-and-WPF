@@ -45,7 +45,7 @@ public class PagesTests
         // ViewModels
         services.AddTransient<OpenWebUiViewModel>();
         services.AddTransient<SettingsViewModel>();
-        services.AddTransient<MainViewModel>();
+        services.AddTransient<OllamaViewModel>();
 
         // Configuration
         services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
@@ -60,7 +60,7 @@ public class PagesTests
     }
 
     [Test]
-    public void TestGetWebViewPageType()
+    public void TestGetOpenWebUiPageType()
     {
         if (_host.Services.GetService(typeof(IPageService)) is IPageService pageService)
         {
@@ -98,17 +98,17 @@ public class PagesTests
     [Test]
     public void TestMainViewModelCreation()
     {
-        var vm = _host.Services.GetService(typeof(MainViewModel));
+        var vm = _host.Services.GetService(typeof(OllamaViewModel));
         Assert.That(vm, Is.Not.Null);
     }
 
     [Test]
-    public void TestGetMainPageType()
+    public void TestGetOllamaPageType()
     {
         if (_host.Services.GetService(typeof(IPageService)) is IPageService pageService)
         {
-            var pageType = pageService.GetPageType(typeof(MainViewModel).FullName);
-            Assert.That(typeof(MainPage), Is.EqualTo(pageType));
+            var pageType = pageService.GetPageType(typeof(OllamaViewModel).FullName);
+            Assert.That(typeof(OllamaPage), Is.EqualTo(pageType));
         }
         else
         {

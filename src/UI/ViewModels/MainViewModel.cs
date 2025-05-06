@@ -7,13 +7,13 @@ using DeepSeek.WPF.UI.Helpers;
 
 namespace DeepSeek.WPF.UI.ViewModels;
 
-public partial class MainViewModel : ObservableObject
+public partial class OllamaViewModel : ObservableObject
 {
     private readonly IAiMessageService _aiMessageService;
     private ObservableCollection<LlmModel> _availableModels;
     private LlmModel _selectedModel;
 
-    public MainViewModel(IAiMessageService aiMessageService)
+    public OllamaViewModel(IAiMessageService aiMessageService)
     {
         _aiMessageService = aiMessageService;
         AvailableModels = new ObservableCollection<LlmModel> { LlmModel.DeepSeek_R1_1_5b, LlmModel.Llama3 };

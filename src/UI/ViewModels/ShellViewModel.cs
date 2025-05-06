@@ -33,7 +33,7 @@ public class ShellViewModel : ObservableObject
 
     public ObservableCollection<HamburgerMenuItem> MenuItems { get; } = new ObservableCollection<HamburgerMenuItem>()
     {
-        new HamburgerMenuGlyphItem() { Label = Resources.ShellMainPage, Glyph = "\uF58C", TargetPageType = typeof(MainViewModel) },
+        new HamburgerMenuGlyphItem() { Label = Resources.ShellOllamaPage, Glyph = "\uF58C", TargetPageType = typeof(OllamaViewModel) },
         new HamburgerMenuGlyphItem() { Label = Resources.ShellOpenWebUiPage, Glyph = "\uF6FA", TargetPageType = typeof(OpenWebUiViewModel) },
     };
 

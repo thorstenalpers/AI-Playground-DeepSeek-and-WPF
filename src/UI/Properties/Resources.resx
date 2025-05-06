@@ -165,8 +165,8 @@
   <data name="WebViewPageOpenInBrowserButtonTooltip" xml:space="preserve">
     <value>Open in browser (Ctrl + T)</value>
   </data>
-  <data name="ShellMainPage" xml:space="preserve">
-    <value>Home</value>
+  <data name="ShellOllamaPage" xml:space="preserve">
+    <value>Ollama</value>
   </data>
   <data name="MainPageTitle" xml:space="preserve">
     <value>Home</value>

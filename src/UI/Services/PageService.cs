@@ -15,7 +15,7 @@ public class PageService : IPageService
     public PageService(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
-        Configure<MainViewModel, MainPage>();
+        Configure<OllamaViewModel, OllamaPage>();
         Configure<OpenWebUiViewModel, OpenWebUiPage>();
         Configure<SettingsViewModel, SettingsPage>();
     }

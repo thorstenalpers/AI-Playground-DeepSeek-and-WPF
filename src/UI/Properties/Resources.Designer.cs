@@ -169,11 +169,11 @@ namespace DeepSeek.WPF.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Home.
+        ///   Looks up a localized string similar to Ollama.
         /// </summary>
-        public static string ShellMainPage {
+        public static string ShellOllamaPage {
             get {
-                return ResourceManager.GetString("ShellMainPage", resourceCulture);
+                return ResourceManager.GetString("ShellOllamaPage", resourceCulture);
             }
         }
         
