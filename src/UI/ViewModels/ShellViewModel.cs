@@ -31,11 +31,10 @@ public class ShellViewModel : ObservableObject
         set { SetProperty(ref _selectedOptionsMenuItem, value); }
     }
 
-    // TODO: Change the icons and titles for all HamburgerMenuItems here.
     public ObservableCollection<HamburgerMenuItem> MenuItems { get; } = new ObservableCollection<HamburgerMenuItem>()
     {
         new HamburgerMenuGlyphItem() { Label = Resources.ShellMainPage, Glyph = "\uF58C", TargetPageType = typeof(MainViewModel) },
-        new HamburgerMenuGlyphItem() { Label = Resources.ShellWebViewPage, Glyph = "\uF6FA", TargetPageType = typeof(OpenWebUiViewModel) },
+        new HamburgerMenuGlyphItem() { Label = Resources.ShellOpenWebUiPage, Glyph = "\uF6FA", TargetPageType = typeof(OpenWebUiViewModel) },
     };
 
     public ObservableCollection<HamburgerMenuItem> OptionMenuItems { get; } = new ObservableCollection<HamburgerMenuItem>()
