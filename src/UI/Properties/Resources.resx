@@ -124,7 +124,7 @@
     <value>Settings</value>
   </data>
   <data name="SettingsPageAboutText" xml:space="preserve">
-    <value>This project is a C# WPF desktop application demonstrating how to interact with DeepSeek, an advanced language model, from a Windows application built with .NET. The goal is to explore integrating AI capabilities directly into modern desktop apps using clean, maintainable C# code.</value>
+    <value>This project is a C# WPF desktop application demonstrating how to interact with popular AI tools. </value>
   </data>
   <data name="SettingsPageAboutTitle" xml:space="preserve">
     <value>About this application</value>

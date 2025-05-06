@@ -79,7 +79,7 @@ namespace AiPlayground.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This project is a C# WPF desktop application demonstrating how to interact with DeepSeek, an advanced language model, from a Windows application built with .NET. The goal is to explore integrating AI capabilities directly into modern desktop apps using clean, maintainable C# code..
+        ///   Looks up a localized string similar to This project is a C# WPF desktop application demonstrating how to interact with popular AI tools. .
         /// </summary>
         public static string SettingsPageAboutText {
             get {
