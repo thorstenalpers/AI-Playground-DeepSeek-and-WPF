@@ -1,12 +1,12 @@
 ﻿using System.Reflection;
-using DeepSeek.WPF.Core.Contracts.Services;
-using DeepSeek.WPF.UI;
+using AiPlayground.Core.Contracts.Services;
+using AiPlayground.UI;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NUnit.Framework;
 
-namespace DeepSeek.WPF.Tests.Services;
+namespace AiPlayground.Tests.Services;
 
 [TestFixture]
 [Category("Integration")]

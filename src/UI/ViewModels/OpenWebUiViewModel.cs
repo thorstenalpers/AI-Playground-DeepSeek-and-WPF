@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace DeepSeek.WPF.UI.ViewModels;
+namespace AiPlayground.UI.ViewModels;
 
 public class OpenWebUiViewModel : ObservableObject
 {

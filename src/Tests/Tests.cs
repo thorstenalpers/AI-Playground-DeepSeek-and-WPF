@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace DeepSeek.WPF.Tests;
+namespace AiPlayground.Tests;
 
 // TODO: Add appropriate unit tests.
 [Category("Unit")]

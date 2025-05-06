@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
-using DeepSeek.WPF.UI.Contracts.Services;
+using AiPlayground.UI.Contracts.Services;
 
-namespace DeepSeek.WPF.UI.Services;
+namespace AiPlayground.UI.Services;
 
 public class ApplicationInfoService : IApplicationInfoService
 {
@@ -12,7 +12,7 @@ public class ApplicationInfoService : IApplicationInfoService
 
     public Version GetVersion()
     {
-        // Set the app version in DeepSeek.WPF > Properties > Package > PackageVersion
+        // Set the app version in AiPlayground > Properties > Package > PackageVersion
         var assemblyLocation = Assembly.GetExecutingAssembly().Location;
         var version = FileVersionInfo.GetVersionInfo(assemblyLocation).FileVersion;
         return new Version(version);

@@ -1,4 +1,4 @@
-﻿namespace DeepSeek.WPF.Core.Contracts.Services;
+﻿namespace AiPlayground.Core.Contracts.Services;
 
 public interface IFileService
 {

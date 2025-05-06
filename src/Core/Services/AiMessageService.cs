@@ -1,9 +1,9 @@
 ﻿using System.Text;
-using DeepSeek.WPF.Core.Contracts.Services;
+using AiPlayground.Core.Contracts.Services;
 using Newtonsoft.Json;
 using OllamaSharp;
 
-namespace DeepSeek.WPF.Core.Services;
+namespace AiPlayground.Core.Services;
 
 public class AiMessageService : IAiMessageService
 {
@@ -25,7 +25,7 @@ public class AiMessageService : IAiMessageService
         {
             var requestBody = new
             {
-                model = model,
+                model,
                 prompt
             };
 

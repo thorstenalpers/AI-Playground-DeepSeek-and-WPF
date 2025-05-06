@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
-	<RootNamespace>DeepSeek.WPF.Core</RootNamespace>
- 	<DefaultNamespace>DeepSeek.WPF.Core</DefaultNamespace>
+	<RootNamespace>AiPlayground.Core</RootNamespace>
+ 	<DefaultNamespace>AiPlayground.Core</DefaultNamespace>
  </PropertyGroup>
 
   <ItemGroup>

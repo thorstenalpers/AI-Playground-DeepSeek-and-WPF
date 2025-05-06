@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DeepSeek.WPF.Core.Models;
+namespace AiPlayground.Core.Models;
 public enum LlmModel
 {
     [Display(Name = "deepseek-r1:1.5b")]

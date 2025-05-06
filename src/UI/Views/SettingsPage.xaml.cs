@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
-using DeepSeek.WPF.UI.ViewModels;
+using AiPlayground.UI.ViewModels;
 
-namespace DeepSeek.WPF.UI.Views;
+namespace AiPlayground.UI.Views;
 
 public partial class SettingsPage : Page
 {

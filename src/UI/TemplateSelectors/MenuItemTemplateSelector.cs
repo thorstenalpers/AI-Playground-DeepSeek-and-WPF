@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using MahApps.Metro.Controls;
 
-namespace DeepSeek.WPF.UI.TemplateSelectors;
+namespace AiPlayground.UI.TemplateSelectors;
 
 public class MenuItemTemplateSelector : DataTemplateSelector
 {

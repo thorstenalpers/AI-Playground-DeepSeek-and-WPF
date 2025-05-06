@@ -1,12 +1,12 @@
-﻿using DeepSeek.WPF.UI.Contracts.Services;
-using DeepSeek.WPF.UI.Models;
-using DeepSeek.WPF.UI.ViewModels;
+﻿using AiPlayground.UI.Contracts.Services;
+using AiPlayground.UI.Models;
+using AiPlayground.UI.ViewModels;
 
 using Moq;
 
 using NUnit.Framework;
 
-namespace DeepSeek.WPF.Tests;
+namespace AiPlayground.Tests;
 
 [Category("Unit")]
 public class SettingsViewModelTests
@@ -39,7 +39,7 @@ public class SettingsViewModelTests
         var settingsVm = new SettingsViewModel(mockThemeSelectorService.Object, mockApplicationInfoService.Object);
         settingsVm.OnNavigatedTo(null);
 
-        Assert.That($"DeepSeek.WPF - {testVersion}", Is.EqualTo(settingsVm.VersionDescription));
+        Assert.That($"AiPlayground - {testVersion}", Is.EqualTo(settingsVm.VersionDescription));
     }
 
     [Test]

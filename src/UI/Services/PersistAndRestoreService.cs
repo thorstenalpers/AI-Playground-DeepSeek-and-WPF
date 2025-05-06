@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.IO;
-using DeepSeek.WPF.Core.Contracts.Services;
-using DeepSeek.WPF.UI.Contracts.Services;
-using DeepSeek.WPF.UI.Models;
+using AiPlayground.Core.Contracts.Services;
+using AiPlayground.UI.Contracts.Services;
+using AiPlayground.UI.Models;
 using Microsoft.Extensions.Options;
 
-namespace DeepSeek.WPF.UI.Services;
+namespace AiPlayground.UI.Services;
 
 public class PersistAndRestoreService : IPersistAndRestoreService
 {

@@ -1,4 +1,4 @@
-﻿namespace DeepSeek.WPF.UI.Models;
+﻿namespace AiPlayground.UI.Models;
 
 public enum AppTheme
 {

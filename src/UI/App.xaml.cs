@@ -2,20 +2,20 @@
 using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
-using DeepSeek.WPF.Core.Contracts.Services;
-using DeepSeek.WPF.Core.Services;
-using DeepSeek.WPF.UI.Contracts.Services;
-using DeepSeek.WPF.UI.Contracts.Views;
-using DeepSeek.WPF.UI.Models;
-using DeepSeek.WPF.UI.Services;
-using DeepSeek.WPF.UI.ViewModels;
-using DeepSeek.WPF.UI.Views;
+using AiPlayground.Core.Contracts.Services;
+using AiPlayground.Core.Services;
+using AiPlayground.UI.Contracts.Services;
+using AiPlayground.UI.Contracts.Views;
+using AiPlayground.UI.Models;
+using AiPlayground.UI.Services;
+using AiPlayground.UI.ViewModels;
+using AiPlayground.UI.Views;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace DeepSeek.WPF.UI;
+namespace AiPlayground.UI;
 
 public partial class App : Application
 {

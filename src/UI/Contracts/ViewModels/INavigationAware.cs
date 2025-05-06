@@ -1,4 +1,4 @@
-﻿namespace DeepSeek.WPF.UI.Contracts.ViewModels;
+﻿namespace AiPlayground.UI.Contracts.ViewModels;
 
 public interface INavigationAware
 {

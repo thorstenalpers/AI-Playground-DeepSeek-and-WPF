@@ -1,12 +1,11 @@
 ﻿using System.Windows.Input;
-
+using AiPlayground.UI.Contracts.Services;
+using AiPlayground.UI.Contracts.ViewModels;
+using AiPlayground.UI.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using DeepSeek.WPF.UI.Contracts.Services;
-using DeepSeek.WPF.UI.Contracts.ViewModels;
-using DeepSeek.WPF.UI.Models;
 
-namespace DeepSeek.WPF.UI.ViewModels;
+namespace AiPlayground.UI.ViewModels;
 
 public class SettingsViewModel : ObservableObject, INavigationAware
 {

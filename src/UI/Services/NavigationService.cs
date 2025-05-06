@@ -1,10 +1,10 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Navigation;
-using DeepSeek.WPF.UI.Contracts.Services;
-using DeepSeek.WPF.UI.Contracts.ViewModels;
-using DeepSeek.WPF.UI.Helpers;
+using AiPlayground.UI.Contracts.Services;
+using AiPlayground.UI.Contracts.ViewModels;
+using AiPlayground.UI.Helpers;
 
-namespace DeepSeek.WPF.UI.Services;
+namespace AiPlayground.UI.Services;
 
 public class NavigationService : INavigationService
 {

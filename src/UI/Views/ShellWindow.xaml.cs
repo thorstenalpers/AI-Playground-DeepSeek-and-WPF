@@ -1,9 +1,9 @@
 ﻿using System.Windows.Controls;
-using DeepSeek.WPF.UI.Contracts.Views;
-using DeepSeek.WPF.UI.ViewModels;
+using AiPlayground.UI.Contracts.Views;
+using AiPlayground.UI.ViewModels;
 using MahApps.Metro.Controls;
 
-namespace DeepSeek.WPF.UI.Views;
+namespace AiPlayground.UI.Views;
 
 public partial class ShellWindow : MetroWindow, IShellWindow
 {

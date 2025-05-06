@@ -1,6 +1,6 @@
-﻿# AI Playground (DeepSeek and WPF)
+﻿# AI Playground (WPF)
 
-**AI Playground (DeepSeek and WPF)** is a simple WPF application that integrates DeepSeek both in code and via a WebUI.
+**AI Playground (WPF)** is a simple WPF application that integrates AI tools via Docker and Kubernetes.
 
 ## 🚀 Installation Guide
 

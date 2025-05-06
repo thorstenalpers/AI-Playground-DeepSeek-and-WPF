@@ -6,9 +6,9 @@
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ImplicitUsings>enable</ImplicitUsings>
-	<RootNamespace>DeepSeek.WPF.UI</RootNamespace>
+	<RootNamespace>AiPlayground.UI</RootNamespace>
 	<ApplicationIcon>Assets\logo-black.ico</ApplicationIcon>
-	<AssemblyName>DeepSeek.WPF</AssemblyName>
+	<AssemblyName>AiPlayground</AssemblyName>
   </PropertyGroup>
     
   <ItemGroup>

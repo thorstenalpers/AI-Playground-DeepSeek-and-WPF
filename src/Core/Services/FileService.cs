@@ -1,10 +1,8 @@
 ﻿using System.Text;
-
-using DeepSeek.WPF.Core.Contracts.Services;
-
+using AiPlayground.Core.Contracts.Services;
 using Newtonsoft.Json;
 
-namespace DeepSeek.WPF.Core.Services;
+namespace AiPlayground.Core.Services;
 
 public class FileService : IFileService
 {

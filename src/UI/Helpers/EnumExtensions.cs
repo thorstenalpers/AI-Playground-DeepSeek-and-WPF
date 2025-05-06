@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace DeepSeek.WPF.UI.Helpers;
+namespace AiPlayground.UI.Helpers;
 
 public static class EnumExtensions
 {

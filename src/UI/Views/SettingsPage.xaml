@@ -1,13 +1,13 @@
 ﻿<Page
-    x:Class="DeepSeek.WPF.UI.Views.SettingsPage"
+    x:Class="AiPlayground.UI.Views.SettingsPage"
     Style="{DynamicResource MahApps.Styles.Page}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:converters="clr-namespace:DeepSeek.WPF.UI.Converters"
-    xmlns:models="clr-namespace:DeepSeek.WPF.UI.Models"
-    xmlns:properties="clr-namespace:DeepSeek.WPF.UI.Properties"
+    xmlns:converters="clr-namespace:AiPlayground.UI.Converters"
+    xmlns:models="clr-namespace:AiPlayground.UI.Models"
+    xmlns:properties="clr-namespace:AiPlayground.UI.Properties"
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">

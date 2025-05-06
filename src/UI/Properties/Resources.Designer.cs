@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DeepSeek.WPF.UI.Properties {
+namespace AiPlayground.UI.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DeepSeek.WPF.UI.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DeepSeek.WPF.UI.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AiPlayground.UI.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace DeepSeek.WPF.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DeepSeek.WPF.
+        ///   Looks up a localized string similar to AiPlayground.
         /// </summary>
         public static string AppDisplayName {
             get {

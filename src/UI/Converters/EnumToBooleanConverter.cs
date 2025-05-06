@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows.Data;
 
-namespace DeepSeek.WPF.UI.Converters;
+namespace AiPlayground.UI.Converters;
 
 public class EnumToBooleanConverter : IValueConverter
 {

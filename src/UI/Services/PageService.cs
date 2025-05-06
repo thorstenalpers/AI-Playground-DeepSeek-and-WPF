@@ -1,11 +1,10 @@
 ﻿using System.Windows.Controls;
-
+using AiPlayground.UI.Contracts.Services;
+using AiPlayground.UI.ViewModels;
+using AiPlayground.UI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
-using DeepSeek.WPF.UI.Contracts.Services;
-using DeepSeek.WPF.UI.ViewModels;
-using DeepSeek.WPF.UI.Views;
 
-namespace DeepSeek.WPF.UI.Services;
+namespace AiPlayground.UI.Services;
 
 public class PageService : IPageService
 {

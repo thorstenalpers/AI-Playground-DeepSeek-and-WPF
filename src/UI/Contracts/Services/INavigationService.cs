@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace DeepSeek.WPF.UI.Contracts.Services;
+namespace AiPlayground.UI.Contracts.Services;
 
 public interface INavigationService
 {

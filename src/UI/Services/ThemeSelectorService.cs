@@ -1,11 +1,10 @@
 ﻿using System.Windows;
-
+using AiPlayground.UI.Contracts.Services;
+using AiPlayground.UI.Models;
 using ControlzEx.Theming;
-using DeepSeek.WPF.UI.Contracts.Services;
-using DeepSeek.WPF.UI.Models;
 using MahApps.Metro.Theming;
 
-namespace DeepSeek.WPF.UI.Services;
+namespace AiPlayground.UI.Services;
 
 public class ThemeSelectorService : IThemeSelectorService
 {

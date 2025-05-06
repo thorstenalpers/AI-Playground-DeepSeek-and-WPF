@@ -1,10 +1,10 @@
-﻿using DeepSeek.WPF.UI.Contracts.Activation;
-using DeepSeek.WPF.UI.Contracts.Services;
-using DeepSeek.WPF.UI.Contracts.Views;
-using DeepSeek.WPF.UI.ViewModels;
+﻿using AiPlayground.UI.Contracts.Activation;
+using AiPlayground.UI.Contracts.Services;
+using AiPlayground.UI.Contracts.Views;
+using AiPlayground.UI.ViewModels;
 using Microsoft.Extensions.Hosting;
 
-namespace DeepSeek.WPF.UI.Services;
+namespace AiPlayground.UI.Services;
 
 public class ApplicationHostService : IHostedService
 {

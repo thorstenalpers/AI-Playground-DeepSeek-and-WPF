@@ -1,12 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using AiPlayground.UI.Contracts.Services;
+using AiPlayground.UI.Properties;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using DeepSeek.WPF.UI.Contracts.Services;
-using DeepSeek.WPF.UI.Properties;
 using MahApps.Metro.Controls;
 
-namespace DeepSeek.WPF.UI.ViewModels;
+namespace AiPlayground.UI.ViewModels;
 
 public class ShellViewModel : ObservableObject
 {

@@ -1,4 +1,4 @@
-﻿namespace DeepSeek.WPF.UI.Contracts.Activation;
+﻿namespace AiPlayground.UI.Contracts.Activation;
 
 public interface IActivationHandler
 {

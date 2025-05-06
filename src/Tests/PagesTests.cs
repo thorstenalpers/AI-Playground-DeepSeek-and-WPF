@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
-using DeepSeek.WPF.Core.Contracts.Services;
-using DeepSeek.WPF.Core.Services;
-using DeepSeek.WPF.UI.Contracts.Services;
-using DeepSeek.WPF.UI.Models;
-using DeepSeek.WPF.UI.Services;
-using DeepSeek.WPF.UI.ViewModels;
-using DeepSeek.WPF.UI.Views;
+using AiPlayground.Core.Contracts.Services;
+using AiPlayground.Core.Services;
+using AiPlayground.UI.Contracts.Services;
+using AiPlayground.UI.Models;
+using AiPlayground.UI.Services;
+using AiPlayground.UI.ViewModels;
+using AiPlayground.UI.Views;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.Hosting;
 
 using NUnit.Framework;
 
-namespace DeepSeek.WPF.Tests;
+namespace AiPlayground.Tests;
 
 [Category("Unit")]
 public class PagesTests

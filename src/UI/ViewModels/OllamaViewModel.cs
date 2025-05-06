@@ -1,11 +1,11 @@
 ﻿using System.Collections.ObjectModel;
+using AiPlayground.Core.Contracts.Services;
+using AiPlayground.Core.Models;
+using AiPlayground.UI.Helpers;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using DeepSeek.WPF.Core.Contracts.Services;
-using DeepSeek.WPF.Core.Models;
-using DeepSeek.WPF.UI.Helpers;
 
-namespace DeepSeek.WPF.UI.ViewModels;
+namespace AiPlayground.UI.ViewModels;
 
 public partial class OllamaViewModel : ObservableObject
 {
