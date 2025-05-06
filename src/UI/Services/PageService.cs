@@ -16,7 +16,7 @@ public class PageService : IPageService
     {
         _serviceProvider = serviceProvider;
         Configure<MainViewModel, MainPage>();
-        Configure<WebViewViewModel, WebViewPage>();
+        Configure<OpenWebUiViewModel, OpenWebUiPage>();
         Configure<SettingsViewModel, SettingsPage>();
     }
 

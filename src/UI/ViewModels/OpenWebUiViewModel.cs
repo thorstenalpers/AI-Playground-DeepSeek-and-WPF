@@ -2,7 +2,7 @@
 
 namespace DeepSeek.WPF.UI.ViewModels;
 
-public class WebViewViewModel : ObservableObject
+public class OpenWebUiViewModel : ObservableObject
 {
     private const string _source = "http://open-webui.localhost";
 

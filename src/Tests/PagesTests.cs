@@ -43,7 +43,7 @@ public class PagesTests
         services.AddSingleton<INavigationService, NavigationService>();
 
         // ViewModels
-        services.AddTransient<WebViewViewModel>();
+        services.AddTransient<OpenWebUiViewModel>();
         services.AddTransient<SettingsViewModel>();
         services.AddTransient<MainViewModel>();
 
@@ -55,7 +55,7 @@ public class PagesTests
     [Test]
     public void TestWebViewViewModelCreation()
     {
-        var vm = _host.Services.GetService(typeof(WebViewViewModel));
+        var vm = _host.Services.GetService(typeof(OpenWebUiViewModel));
         Assert.That(vm, Is.Not.Null);
     }
 
@@ -64,8 +64,8 @@ public class PagesTests
     {
         if (_host.Services.GetService(typeof(IPageService)) is IPageService pageService)
         {
-            var pageType = pageService.GetPageType(typeof(WebViewViewModel).FullName);
-            Assert.That(typeof(WebViewPage), Is.EqualTo(pageType));
+            var pageType = pageService.GetPageType(typeof(OpenWebUiViewModel).FullName);
+            Assert.That(typeof(OpenWebUiPage), Is.EqualTo(pageType));
         }
         else
         {
@@ -73,7 +73,6 @@ public class PagesTests
         }
     }
 
-    // TODO: Add tests for functionality you add to SettingsViewModel.
     [Test]
     public void TestSettingsViewModelCreation()
     {

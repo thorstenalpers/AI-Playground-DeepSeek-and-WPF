@@ -78,8 +78,8 @@ public partial class App : Application
         services.AddTransient<MainViewModel>();
         services.AddTransient<MainPage>();
 
-        services.AddTransient<WebViewViewModel>();
-        services.AddTransient<WebViewPage>();
+        services.AddTransient<OpenWebUiViewModel>();
+        services.AddTransient<OpenWebUiPage>();
 
         services.AddTransient<SettingsViewModel>();
         services.AddTransient<SettingsPage>();

@@ -187,7 +187,7 @@ namespace DeepSeek.WPF.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Browser.
+        ///   Looks up a localized string similar to Open-WebUI.
         /// </summary>
         public static string ShellWebViewPage {
             get {

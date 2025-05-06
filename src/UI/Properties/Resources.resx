@@ -28,7 +28,7 @@
         <value>Default</value>
     </data>
     <data name="ShellWebViewPage" xml:space="preserve">
-		    <value>Browser</value>
+		    <value>Open-WebUI</value>
     </data>
     <data name="WebViewPageBackButtonTooltip" xml:space="preserve">
         <value>Back (Alt + Left)</value>
