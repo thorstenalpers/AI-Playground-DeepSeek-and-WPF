@@ -41,7 +41,7 @@ helm upgrade --install ingress-nodeports
   "./infrastructure/charts/ingress-nodeports/" \
   --wait
 ```
-### 🚀 Run the Application
+### Run the Application
 
 Build the project in Visual Studio (Ctrl+Shift+B).
 
