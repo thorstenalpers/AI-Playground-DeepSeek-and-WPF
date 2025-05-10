@@ -41,6 +41,12 @@ helm upgrade --install ingress-nodeports
   "./infrastructure/charts/ingress-nodeports/" \
   --wait
 ```
+### 🚀 Run the Application
+
+Build the project in Visual Studio (Ctrl+Shift+B).
+
+Go to bin\Release\netX.X-windows\ or Debug\ and run the .exe.
+
 
 ### 🚀 Great AI Projects
 
